@@ -2,8 +2,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NoticeMe.Core.Models.Identity;
 using NoticeMe.Web.Data;
+using NoticeMe.Web.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+if (builder.Environment.IsEnvironment("Testing"))
+{
+    builder.Configuration.AddUserSecrets<Program>(optional: true);
+}
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
@@ -21,6 +27,7 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => option
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddDependencies(builder.Configuration);
 
 
 var app = builder.Build();
