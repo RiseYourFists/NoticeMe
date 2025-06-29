@@ -14,11 +14,11 @@
     <Folder Include="Contracts\" />
     <Folder Include="Enumerations\" />
     <Folder Include="ErrorMessages\" />
+    <Folder Include="Models\" />
     <Folder Include="ValidationConstants\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentEmail.Mailgun" Version="3.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
   </ItemGroup>
 
